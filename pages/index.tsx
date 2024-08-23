@@ -15,7 +15,7 @@ const Home = () => {
         gsap.to('.logo', {
           scale: 1.5,
           transformOrigin: '50% 50%',
-          delay: 0.2,
+          delay: 0.3,
         })
       },
     })
