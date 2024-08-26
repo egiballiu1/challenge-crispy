@@ -29,20 +29,30 @@ html {
 /* menu items hover effect */
 .menu-items-wrapper .menu-item {
   position: relative;
+  padding-bottom: 5px; /* Adjust if needed for space between text and line */
 }
+
 .menu-items-wrapper .menu-item::after {
-  position: absolute;
   content: '';
-  width: 5px;
-  height: 5px;
-  background-color: white;
-  border-radius: 50%;
-  bottom: -8px;
-  left: 50%;
-  transform: scale(1);
-  transition-duration: 0.1s;
-  transition-timing-function: linear;
+  position: absolute;
+  width: 100%; /* Full width of the menu item */
+  height: 2px; /* Height of the line */
+  background-color: white; /* Default color */
+  bottom: 0; /* Position the line at the bottom */
+  left: 0;
+  transform: scaleX(0); /* Initially hide the line */
+  transform-origin: bottom right;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
-.menu-items-wrapper .menu-item:hover::after {
-  background-color: #d60c3e;
+
+.menu-items-wrapper .menu-item:hover::after,
+.menu-items-wrapper .menu-item.active::after {
+  background-color: #d60c3e; /* Color on hover or active state */
+  transform: scaleX(1); /* Show the line */
+}
+
+.more-info {
+  overflow: hidden;
 }

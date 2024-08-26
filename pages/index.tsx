@@ -29,7 +29,7 @@ const Home = () => {
       />
 
       <Layout>
-        <div className="h-[calc(100vh-200px)] w-full flex flex-col items-center pt-[10vh] gap-6 md:gap-10">
+        <div className="h-[calc(100vh-200px)] w-full flex flex-col items-center pt-[15vh] gap-6 md:gap-10">
           <h1 className="text-primary uppercase font-secondary font-bold text-4xl md:text-8xl">
             Challenge
           </h1>

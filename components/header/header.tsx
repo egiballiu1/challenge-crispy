@@ -1,8 +1,11 @@
 import classNames from 'classnames'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const Header = () => {
+  const { pathname } = useRouter()
+
   const menuItem = [
     'font-primary',
     'text-secondary',
@@ -18,8 +21,13 @@ const Header = () => {
     'relative',
   ]
 
+  const getMenuItemClass = (path: string) =>
+    classNames('menu-item', menuItem, {
+      active: pathname === path,
+    })
+
   return (
-    <div className="p-4 md:px-10 flex flex-row justify-between items-center absolute z-10 top-0 w-full min-h-[200px]">
+    <div className="p-4 md:px-10 flex flex-row justify-between items-center bg-white absolute z-10 top-0 w-full min-h-[200px] shadow-md">
       <Link href="/" className="logo-wrapper">
         <Image
           src="/assets/logo.gif"
@@ -30,10 +38,10 @@ const Header = () => {
       </Link>
 
       <div className="menu-items-wrapper flex flex-col items-end md:flex-row md:items-start gap-4 font-normal">
-        <Link href="/" className={classNames('menu-item', menuItem)}>
+        <Link href="/" className={getMenuItemClass('/')}>
           Home
         </Link>
-        <Link href="/services" className={classNames('menu-item', menuItem)}>
+        <Link href="/services" className={getMenuItemClass('/services')}>
           Services
         </Link>
       </div>

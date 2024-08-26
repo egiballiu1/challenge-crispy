@@ -7,14 +7,19 @@ type Props = {
   children: JSX.Element | JSX.Element[]
 }
 
-const mainWrapper = ['md:max-w-screen-xl', 'm-auto', 'px-5']
+const mainWrapper = ['m-auto', 'relative']
 
 const Layout = ({ children }: Props) => {
   return (
     <div className={classNames('page-wrapper relative')}>
       <Header />
 
-      <main className={classNames(mainWrapper, 'layout-container pt-[200px]')}>
+      <main
+        className={classNames(
+          mainWrapper,
+          'layout-container pt-[200px] md:pt-[240px] h-screen flex flex-col justify-between'
+        )}
+      >
         {children}
       </main>
 

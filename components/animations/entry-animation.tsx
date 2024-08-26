@@ -9,6 +9,11 @@ type SingleService = {
   id: string
   title: string
   description: string
+  content: string
+  technologies: string
+  image: {
+    imageId: string
+  }
 }
 
 type ServicesProps = {
@@ -22,12 +27,18 @@ type PageProps = {
   services: ServicesProps
 }
 
+type UploadMedia = {
+  id: string
+  url: string
+}
+
 type Props = {
   pagesData: PageProps
   servicesData: SingleService[]
+  uploadMedia: UploadMedia[]
 }
 
-const EntryAnimation = ({ pagesData, servicesData }: Props) => {
+const EntryAnimation = ({ pagesData, servicesData, uploadMedia }: Props) => {
   const mainContainer: RefObject<HTMLDivElement> = useRef(null)
   const title = useRef<HTMLHeadingElement>(null)
   const contentContainer = useRef<HTMLDivElement>(null)
@@ -94,10 +105,10 @@ const EntryAnimation = ({ pagesData, servicesData }: Props) => {
       >
         <h2
           ref={title}
-          className="page-title font-primary text-primary whitespace-nowrap"
-          style={{ fontSize: 'clamp(3rem, 14vw, 9rem)' }}
+          className="font-primary whitespace-nowrap text-primary text-center font-bold text-2xl uppercase md:text-8xl tracking-[-0.1em] md:max-w-screen-xl mb-0 ml-auto mr-auto"
+          style={{ fontSize: 'clamp(3rem, 14vw, 11rem)' }}
         >
-          {splitTextToSpans(`${pagesData.title.it}`)}
+          {splitTextToSpans('I nostri servizi')}
         </h2>
       </div>
 
@@ -106,7 +117,11 @@ const EntryAnimation = ({ pagesData, servicesData }: Props) => {
         style={{ opacity: 0, visibility: 'hidden' }}
         className="services-content"
       >
-        <ServicesCards pagesData={pagesData} servicesData={servicesData} />
+        <ServicesCards
+          pagesData={pagesData}
+          servicesData={servicesData}
+          uploadMedia={uploadMedia}
+        />
       </div>
     </>
   )
