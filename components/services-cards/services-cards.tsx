@@ -99,10 +99,17 @@ const ServicesCards = ({ pagesData, servicesData, uploadMedia }: Props) => {
   const handleActiveService = (index: number) => {
     setActiveIndex(index)
 
-    gsap.from('.service-content', {
-      duration: 2,
-      opacity: 1,
-    })
+    gsap.fromTo(
+      '.service-content',
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        ease: 'none',
+        duration: 0.5,
+      }
+    )
     gsap.to('.content-container', {
       zIndex: 8,
     })
