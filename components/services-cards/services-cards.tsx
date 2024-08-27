@@ -194,7 +194,7 @@ const ServicesCards = ({ pagesData, servicesData, uploadMedia }: Props) => {
                       dangerouslySetInnerHTML={{ __html: service.content }}
                     ></p>
                     <br />
-                    <h3 className=" text-primary font-primary rounded text-lg pb-10">
+                    <h3 className=" text-primary font-primary rounded text-lg pt-6">
                       Technologie che utilizziamo sono:
                     </h3>
                     <p

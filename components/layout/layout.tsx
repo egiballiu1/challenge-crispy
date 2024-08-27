@@ -17,7 +17,7 @@ const Layout = ({ children }: Props) => {
       <main
         className={classNames(
           mainWrapper,
-          'layout-container pt-[200px] md:pt-[240px] h-screen flex flex-col justify-between'
+          'layout-container pt-[150px] md:pt-[200px] h-screen flex flex-col justify-between'
         )}
       >
         {children}

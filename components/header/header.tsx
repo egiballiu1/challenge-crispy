@@ -27,8 +27,8 @@ const Header = () => {
     })
 
   return (
-    <div className="p-4 md:px-10 flex flex-row justify-between items-center bg-white absolute z-10 top-0 w-full min-h-[200px] shadow-md">
-      <Link href="/" className="logo-wrapper">
+    <div className="p-4 md:px-10 flex flex-row justify-between items-center bg-white absolute z-10 top-0 w-full min-h-[150px] shadow-md">
+      <Link href="/" className="logo-wrapper max-w-[150px]">
         <Image
           src="/assets/logo.gif"
           width={200}
